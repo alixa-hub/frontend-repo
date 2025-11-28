@@ -1,8 +1,8 @@
 // Scroll Reveal
 const revealElements = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", function() {
-    revealElements.forEach(function(el) {
+window.addEventListener("scroll", function () {
+    revealElements.forEach(function (el) {
         const top = el.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
 
@@ -14,7 +14,6 @@ window.addEventListener("scroll", function() {
     });
 });
 
-
 // Hero Slider
 let slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
@@ -25,61 +24,48 @@ function showNextSlide() {
     slides[currentSlide].classList.add("active");
 }
 
-// Change slide every 3 seconds
 setInterval(showNextSlide, 3000);
 
+// ---------- BACKEND CONNECTION (FINAL WORKING VERSION) ----------
 
+// Backend URL (your Vercel backend)
+const BACKEND_URL = "https://backend-0-9wtqi4u34-alixas-projects-532b2a67.vercel.app";
 
-fetch("https://backend-0.vercel.app/perfumes")
-  .then(res => res.json())
-  .then(data => {
-    console.log(data); // render data on page
-  });
-
-
-app.get("/api/products", (req, res) => {
-  res.json({ products: ["Perfume1", "Perfume2"] });
-});
-
-// script.js
-
-// Backend URL (replace with your actual deployed backend URL)
-const BACKEND_URL = "https://backend-0.vercel.app"; 
-
-// Function to fetch perfumes from backend
+// Fetch perfumes using backend
 async function fetchPerfumes() {
-  try {
-    const response = await fetch(`${BACKEND_URL}/perfumes`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+    try {
+        const response = await fetch(`${BACKEND_URL}/perfumes`);
+        if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+
+        const perfumes = await response.json();
+        displayPerfumes(perfumes);
+
+        console.log("Fetched perfumes:", perfumes);
+    } catch (err) {
+        console.error("Failed to fetch perfumes:", err);
+        document.getElementById("perfumes-container").innerHTML =
+            "<p>Failed to load perfumes. Please try again later.</p>";
     }
-    const perfumes = await response.json();
-    displayPerfumes(perfumes);
-  } catch (err) {
-    console.error("Failed to fetch perfumes:", err);
-    const container = document.getElementById("perfumes-container");
-    container.innerHTML = "<p>Failed to load perfumes. Please try again later.</p>";
-  }
 }
 
-// Function to display perfumes on page
+// Display perfumes
 function displayPerfumes(perfumes) {
-  const container = document.getElementById("perfumes-container");
-  container.innerHTML = ""; // Clear previous content
+    const container = document.getElementById("perfumes-container");
+    container.innerHTML = "";
 
-  perfumes.forEach(perfume => {
-    const card = document.createElement("div");
-    card.className = "perfume-card";
+    perfumes.forEach(perfume => {
+        const card = document.createElement("div");
+        card.className = "perfume-card";
 
-    card.innerHTML = `
-      <img src="${perfume.image}" alt="${perfume.name}" class="perfume-image"/>
-      <h3>${perfume.name}</h3>
-      <p>${perfume.description}</p>
-      <p><strong>Price:</strong> $${perfume.price}</p>
-    `;
-    container.appendChild(card);
-  });
+        card.innerHTML = `
+            <img src="${perfume.image}" alt="${perfume.name}" class="perfume-image"/>
+            <h3>${perfume.name}</h3>
+            <p>${perfume.description}</p>
+            <p><strong>Price:</strong> $${perfume.price}</p>
+        `;
+        container.appendChild(card);
+    });
 }
 
-// Call fetch function when page loads
+// Load perfumes when page opens
 window.addEventListener("DOMContentLoaded", fetchPerfumes);
