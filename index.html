@@ -1,28 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Basics Page</title>
-</head>
-<body>
-
-    <h1>Welcome to HTML Basics</h1>
-    <h2>Subheading Example</h2>
-    <p>This is a paragraph explaining HTML basics.</p>
-
-    <a href="https://www.google.com" target="_blank">Go to Google</a>
-
-    <div>
-        <h3>Inside a Div</h3>
-        <p>This is content inside a div container.</p>
-    </div>
-
-    <img src="https://via.placeholder.com/150" alt="Sample Image">
-
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,12 +19,12 @@
     </nav>
   </header>
 
-  <!-- Hero Slider -->
+  <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="hero-slider">
 
       <div class="slide active">
-        <img src="images/images%201.jpg" alt="Image 1">
+        <img src="images/images 1.jpg" alt="Image 1">
         <div class="slide-text">
           <h1>Experience the Elegance</h1>
           <p>Discover the finest perfumes crafted for every moment.</p>
@@ -58,7 +33,7 @@
       </div>
 
       <div class="slide">
-        <img src="images/images%202.jpg" alt="Image 2">
+        <img src="images/images 2.jpg" alt="Image 2">
         <div class="slide-text">
           <h1>Luxury in Every Bottle</h1>
           <p>Fragrances that make an impression.</p>
@@ -67,7 +42,7 @@
       </div>
 
       <div class="slide">
-        <img src="images/images%203.jpg" alt="Image 3">
+        <img src="images/images 3.jpg" alt="Image 3">
         <div class="slide-text">
           <h1>Signature Scents</h1>
           <p>Find the scent that defines you.</p>
@@ -75,11 +50,9 @@
         </div>
       </div>
 
-      <!-- Arrows -->
       <button class="prev">&#10094;</button>
       <button class="next">&#10095;</button>
 
-      <!-- Dots -->
       <div class="dots">
         <span class="dot active"></span>
         <span class="dot"></span>
@@ -89,70 +62,23 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About LuxPerfume</h2>
-    <p>LuxPerfume delivers exquisite scents with elegance and sophistication. Perfect for every occasion.</p>
-  </section>
-
-  <!-- Products Section -->
+  <!-- Products from Backend -->
   <section id="products" class="products">
-    <h2>Our Products</h2>
-    <div class="product-cards">
-      <div class="card">
-        <img src="images/images%201.jpg" alt="Image 1">
-        <h3>Cryo-Mist</h3>
-        <p>The scent of zero friction</p>
-      </div>
-      <div class="card">
-        <img src="images/images%202.jpg" alt="Image 2">
-        <h3>Loam & Bloom</h3>
-        <p>Grounded in grace</p>
-      </div>
-      <div class="card">
-        <img src="images/images%203.jpg" alt="Image 3">
-        <h3>Umbra Zing</h3>
-        <p>Wear the cocktail hour</p>
-      </div>
-      <!-- Special Image -->
-      <div class="card">
-        <img src="images/vaporisateur-incolore-verre-rechargeable-removebg-preview.jpg" alt="Vaporisateur">
-        <h3>Special Vaporisateur</h3>
-        <p>Reusable & Stylish</p>
-      </div>
-    </div>
+      <h2>Our Perfumes (Live From Backend)</h2>
+      <div id="perfumes-container" class="product-cards"></div>
   </section>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
   </section>
 
   <script src="script.js"></script>
 </body>
 </html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfume Store</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <h1>Our Perfumes</h1>
-  <div id="perfumes-container"></div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-<div id="perfumes-container"></div>
