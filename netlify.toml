@@ -2,8 +2,7 @@
 
 [[redirects]]
   from = "/api/*"
-  to = newdesignbackend.vercel.app
-
+  to = "https://newdesignbackend.vercel.app/:splat"  # <-- Sahi Syntax: Quotes aur :splat ke saath
   status = 200
   force = true
 
